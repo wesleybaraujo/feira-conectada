@@ -38,7 +38,4 @@ def ata(self):
 def ata(self,ataNew):
     if not ataNew or not isinstance(ataNew,str):
         raise ValueError("Ata não pode ser vazia ou nula")
-    self.__ataNew = ataNew
-
-
-    
+    self.__ataNew = ataNew
