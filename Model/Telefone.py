@@ -26,9 +26,4 @@ class Telefone:
     def mumero(self,numeroNew):
         if not numeroNew or not isinstance(numeroNew,str):
             raise ValueError("Número não pode ser vazia ou nula")
-        self.__numero = numeroNew
-        
-        
-
-
-    
+        self.__numero = numeroNew
