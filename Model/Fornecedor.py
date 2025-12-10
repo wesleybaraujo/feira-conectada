@@ -1,18 +1,24 @@
 class Fornecedor:
-    def __init__(self, cod_fornecedor,razao_social,nome_resp, num_doc):
+    def __init__(self, cod_fornecedor, razao_social, nome_resp, num_doc):
         self.cod_fornecedor = cod_fornecedor
-        self.razao_social = razao_social 
+        self.razao_social = razao_social
         self.nome_resp = nome_resp
         self.num_doc = num_doc
-  
+
     @property
     def cod_fornecedor(self):
-       return self.__cod_fonecedor
-    
+        return self.__cod_fornecedor
+
+    @cod_fornecedor.setter
+    def cod_fornecedor(self, cod_fornecedor):
+        if not cod_fornecedor or not isinstance(cod_fornecedor, int):
+            raise ValueError("Código do fornecedor não pode ser vazio ou nulo e deve ser um inteiro")
+        self.__cod_fornecedor = cod_fornecedor
+
     @property
     def razao_social(self):
-       return self.__razao_social
-    
+        return self.__razao_social
+
     @razao_social.setter
     def razao_social(self, razao_socialNew):
         if not razao_socialNew or not isinstance(razao_socialNew, str):
@@ -22,7 +28,7 @@ class Fornecedor:
     @property
     def nome_resp(self):
         return self.__nome_resp
-        
+
     @nome_resp.setter
     def nome_resp(self, nome_respNew):
         if not nome_respNew or not isinstance(nome_respNew, str):
@@ -31,13 +37,18 @@ class Fornecedor:
 
     @property
     def num_doc(self):
-       return self.__num_doc
-    
+        return self.__num_doc
+
     @num_doc.setter
     def num_doc(self, num_docNew):
         if not num_docNew or not isinstance(num_docNew, str):
             raise ValueError("Numero do documento não pode ser vazio ou nulo")
         self.__num_doc = num_docNew
 
-
-
+    def to_dict(self):
+        return {
+            "cod_fornecedor": self.cod_fornecedor,
+            "razao_social": self.razao_social,
+            "nome_resp": self.nome_resp,
+            "num_doc": self.num_doc,
+        }
