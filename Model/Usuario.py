@@ -13,7 +13,7 @@ class Usuario:
     @cod_usuario.setter
     def cod_usuario(self, codNew):
         if not codNew:
-            raise ValueError("O código do usuário não pode ser vazio ou nulo")
+            raise ValueError("Código inválido.")
         self.__cod_usuario = codNew
 
     @property
@@ -23,7 +23,7 @@ class Usuario:
     @nome.setter
     def nome(self, nomeNew):
         if not nomeNew or not isinstance(nomeNew, str):
-            raise ValueError("O nome não pode ser vazio ou nulo")
+            raise ValueError("Nome inválido.")
         self.__nome = nomeNew
 
     @property
@@ -33,7 +33,7 @@ class Usuario:
     @email.setter
     def email(self, emailNew):
         if not emailNew or not isinstance(emailNew, str):
-            raise ValueError("O email não pode ser vazio ou nulo")
+            raise ValueError("Email inválido.")
         self.__email = emailNew
 
     @property
@@ -43,7 +43,7 @@ class Usuario:
     @senha.setter
     def senha(self, senhaNew):
         if not senhaNew or not isinstance(senhaNew, str):
-            raise ValueError("A senha não pode ser vazia ou nula")
+            raise ValueError("Senha inválida.")
         self.__senha = senhaNew
 
     @property
@@ -53,5 +53,45 @@ class Usuario:
     @num_documento.setter
     def num_documento(self, numDocNew):
         if not numDocNew or not isinstance(numDocNew, str):
-            raise ValueError("O documento não pode ser vazio ou nulo")
+            raise ValueError("Documento inválido.")
         self.__num_documento = numDocNew
+
+    def autenticar(self, senha_digitada):
+        return senha_digitada == self.senha
+
+    def atualizar_dados(self, novos_dados: dict) -> bool:
+        try:
+            if "nome" in novos_dados:
+                self.nome = novos_dados["nome"]
+
+            if "email" in novos_dados:
+                self.email = novos_dados["email"]
+
+            if "senha" in novos_dados:
+                self.senha = novos_dados["senha"]
+
+            return True
+
+        except ValueError as e:
+            print(f"Erro ao atualizar dados: {e}")
+            return False
+
+    def exibir_dados(self):
+        return (
+            f"Usuário:\n"
+            f"  Código: {self.cod_usuario}\n"
+            f"  Nome: {self.nome}\n"
+            f"  Email: {self.email}\n"
+            f"  Documento: {self.num_documento}"
+        )
+
+    def salvar(self):
+        print(f"Usuário {self.nome} (ID: {self.cod_usuario}) salvo com sucesso!")
+
+
+
+
+        
+
+
+

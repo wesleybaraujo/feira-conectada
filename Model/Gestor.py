@@ -12,5 +12,18 @@ class Gestor(Usuario):
     @cod_gerente.setter
     def cod_gerente(self, codGerenteNew):
         if not codGerenteNew:
-            raise ValueError("O código do gerente não pode ser vazio")
+            raise ValueError
         self.__cod_gerente = codGerenteNew
+
+    def exibir_dados(self):
+        return (
+            f"Gestor:\n"
+            f"  Código do Gerente: {self.cod_gerente}\n"
+            f"  Código do Usuário: {self.cod_usuario}\n"
+            f"  Nome: {self.nome}\n"
+            f"  Email: {self.email}\n"
+            f"  Documento: {self.num_documento}"
+        )
+
+    def salvar(self):
+        print(f"Gestor {self.nome} (Gerente ID: {self.cod_gerente}) salvo com sucesso!")
