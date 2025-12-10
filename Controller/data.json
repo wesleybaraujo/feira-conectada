@@ -1,0 +1,26 @@
+{
+    "fornecedores": [
+        {
+            "cod_fornecedor": 23,
+            "razao_social": "Teste Fornecedor",
+            "nome_resp": "Teste Luiz",
+            "num_doc": "2131241231"
+        }
+    ],
+    "feiras": [
+        {
+            "cod_feira": 20,
+            "nome_feira": "Feira Conectada Crato",
+            "programacoes": [],
+            "fornecedores": []
+        },
+        {
+            "cod_feira": 25,
+            "nome_feira": "Feira Conectada Jua",
+            "programacoes": [],
+            "fornecedores": [
+                23
+            ]
+        }
+    ]
+}

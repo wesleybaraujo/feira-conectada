@@ -43,3 +43,11 @@ class Programacao:
         if not hora_fimNew or not isinstance(hora_fimNew, time):
             raise ValueError("Hora de fim não pode ser vazia ou nula")
         self.__hora_fim = hora_fimNew
+
+    def to_dict(self):
+        return {
+            "cod_programacao": self.cod_programacao,
+            "dia": self.dia,
+            "hora_inicio": self.hora_inicio.isoformat(),
+            "hora_fim": self.hora_fim.isoformat(),
+        }
